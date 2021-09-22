@@ -1,0 +1,24 @@
+import pandas as pd
+
+import math 
+
+
+
+archivo = pd.read_csv('train.csv')
+
+print(archivo)
+
+# Con esto importamos la libreria pandas y abrimos el archivo
+
+#1
+counter = archivo.count()
+print(counter)
+print(counter.PassengerId)
+
+#2
+vivos = archivo.loc[archivo['Survived'] == 1] 
+hombres_vivos = vivos.loc[vivos['Sex'] == 'male'].index.size
+mujeres_vivas = vivos.loc[vivos['Sex'] == 'female'].index.size
+
+print(hombres_vivos)
+print(mujeres_vivas)
