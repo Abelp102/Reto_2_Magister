@@ -1,24 +1,27 @@
 import pandas as pd
+from pandas import DataFrame
 
-import math 
+df_titanic = pd.read_csv('train.csv')
+
+# Tengo que comentarlo todo explicando lo que he hecho y por qué y graficar lo que pueda.
 
 
+# 1. ¿Cuántas personas iban en el titanic?
+contador = df_titanic.count()
+print('El número total de pasajeros en el titanic es:',contador.PassengerId)
 
-archivo = pd.read_csv('train.csv')
-
-print(archivo)
-
-# Con esto importamos la libreria pandas y abrimos el archivo
-
-#1
-counter = archivo.count()
-print(counter)
-print(counter.PassengerId)
-
-#2
-vivos = archivo.loc[archivo['Survived'] == 1] 
+# 2. ¿Cuántos hombres y mujeres sobrevivieron?
+vivos = df_titanic.loc[df_titanic['Survived'] == 1] 
 hombres_vivos = vivos.loc[vivos['Sex'] == 'male'].index.size
 mujeres_vivas = vivos.loc[vivos['Sex'] == 'female'].index.size
 
-print(hombres_vivos)
-print(mujeres_vivas)
+print('El número de hombres que sobrevivieron es: {superv_h}, y de mujeres: {superv_m}'.format(superv_h = hombres_vivos, superv_m = mujeres_vivas))
+
+# 3. ¿Cuál fue el top 10 de edad que más sobrevieron y el top 10 de edad que no lo lograron?
+
+df_mask = df_titanic['Survived'] == 1
+
+df_filtrado = df_titanic[df_mask]
+
+df_filtrado['Age'] = pd.Series([round(val, 0) for val in df_filtrado['Age']])
+print(df_filtrado['Age'].value_counts().head(10))
