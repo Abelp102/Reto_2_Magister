@@ -19,9 +19,8 @@ print('El número de hombres que sobrevivieron es: {superv_h}, y de mujeres: {su
 
 # 3. ¿Cuál fue el top 10 de edad que más sobrevieron y el top 10 de edad que no lo lograron?
 
-df_mask = df_titanic['Survived'] == 1
+top10_suv = df_titanic.loc[df_titanic['Survived'] == 1].groupby(['Age']).size().reset_index(name='count').sort_values(by=['count'], ascending=False)
+print(top10_suv.head(10))
 
-df_filtrado = df_titanic[df_mask]
-
-df_filtrado['Age'] = pd.Series([round(val, 0) for val in df_filtrado['Age']])
-print(df_filtrado['Age'].value_counts().head(10))
+top10_no_suv = df_titanic.loc[df_titanic['Survived'] == 0].groupby(['Age']).size().reset_index(name='count').sort_values(by=['count'], ascending=False)
+print(top10_no_suv.head(10))
