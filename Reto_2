@@ -1,15 +1,11 @@
-import pandas as pd
+import pandas as pd 
 from pandas import DataFrame
 
 df_titanic = pd.read_csv('train.csv')
 
-# Tengo que comentarlo todo explicando lo que he hecho y por qué y graficar lo que pueda.
-
-
 # 1. ¿Cuántas personas iban en el titanic?
 contador = df_titanic.count()
 print('El número total de pasajeros en el titanic es:',contador.PassengerId)
-
 
 # 2. ¿Cuántos hombres y mujeres sobrevivieron?
 vivos = df_titanic.loc[df_titanic['Survived'] == 1] 
