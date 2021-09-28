@@ -24,3 +24,13 @@ print(top10_suv.head(10))
 
 top10_no_suv = df_titanic.loc[df_titanic['Survived'] == 0].groupby(['Age']).size().reset_index(name='count').sort_values(by=['count'], ascending=False)
 print(top10_no_suv.head(10))
+
+# 4. ¿Cuántos cargos o títulos iban en el barco? Ejemplo: Capitanes, Mrs. Miss, etc. (pista: usa expresiones regulares)
+
+def extraer_tratamiento(name):
+  m = re.search(r"\w*\.", name)
+  if not m:
+      return ""
+  return m[0][:-1]
+
+pd.unique(df_titanic.Name.apply(extraer_tratamiento))
