@@ -1,5 +1,5 @@
 # 1. ¿Cuántas personas iban en el titanic?
-- Lo primero que hice fue definir la variable contador, en la que nombro el dataframe importado previamente en la linea 4 y utilizo la función count() para contar, en este caso, la columna PassengerId (en MySQL este sería nuestro primary key)
+- Lo primero que hice fue definir la variable contador, en la que nombro el dataframe importado previamente en la linea 4 y utilizo la función 'count()' para contar, en este caso, la columna PassengerId (en MySQL este sería nuestro primary key)
 
 
 # 2. ¿Cuántos hombres y mujeres sobrevivieron?
