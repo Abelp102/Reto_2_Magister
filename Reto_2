@@ -36,5 +36,5 @@ pd.unique(df_titanic.Name.apply(extraer_tratamiento))
 # 5. ¿Cuánto es la sumatoria del valor de los tickets en EUR? (pista: los tickets se vendieron en libras esterlinas)
 Sumatorio_libras = df_titanic['Fare'].sum()
 
-Sumatorio_Euros = Sumatorio_libras * 1.175
+Sumatorio_Euros = Sumatorio_libras * 1.165
 print('La sumatoria del valor de los tickets en euros es: ',Sumatorio_Euros)
